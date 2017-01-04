@@ -30,6 +30,7 @@
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "express-http-proxy": "^0.10.1",
+    "https-proxy-agent": "^1.0.0",
     "open": "0.0.5",
     "shell-arguments": "^1.2.3",
     "yargs": "^6.6.0"

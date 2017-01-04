@@ -1,6 +1,7 @@
-import {port} from './config.js'
+import {port, corporateProxy} from './config.js'
 import express from 'express'
 import proxy from 'express-http-proxy'
+import HttpsProxyAgent from 'https-proxy-agent'
 import gzip from 'compression'
 import url from 'url'
 import {argv} from 'yargs'
@@ -19,6 +20,15 @@ const options = {
     if (req.path === '/') {
       return url.parse(argv.url).path
     }
+  },
+  decorateRequest(req, res) {
+    if (corporateProxy) {
+      const proxyAgent = new HttpsProxyAgent(corporateProxy)
+      req.agent = proxyAgent
+    }
+
+
+    return req
   }
 }
 
