@@ -1,0 +1,35 @@
+{
+  "name": "browserspec",
+  "private": true,
+  "description": "a test framework to frontend",
+  "main": "sources/index.js",
+  "scripts": {
+    "pretest": "scripts/lint.sh",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "scripts/lint.sh",
+    "start": "scripts/start.sh",
+    "dev": "scripts/dev.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darlanmendonca/webservice.git"
+  },
+  "author": "Darlan Mendonça <darlanmendonca@gmail.com> (darlanmendonca.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darlanmendonca/webservice/issues"
+  },
+  "homepage": "https://github.com/darlanmendonca/webservice#readme",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-preset-es2015": "^6.18.0",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "shell-arguments": "^1.2.3"
+  },
+  "devDependencies": {
+    "babel-watch": "^2.0.3",
+    "eslint": "^3.12.1"
+  }
+}
