@@ -4,6 +4,7 @@ import proxy from 'express-http-proxy'
 import gzip from 'compression'
 import url from 'url'
 import {argv} from 'yargs'
+import open from 'open'
 
 const server = express()
 const validUrl = typeof argv.url === 'string' && url.parse(argv.url)
@@ -24,7 +25,12 @@ const options = {
 server
   .use(gzip())
   .use('/', proxy(argv.url, options))
-  .listen(port)
+  .listen(port, openBrowser)
+
+function openBrowser() {
+  const route = `http://localhost:${port}`
+  open(route, 'google chrome')
+}
 
 module.exports = server
 
