@@ -3,6 +3,9 @@
   "private": true,
   "description": "a test framework to frontend",
   "main": "sources/index.js",
+  "bin": {
+    "browserspec": "./bin/browserspec.js"
+  },
   "scripts": {
     "pretest": "scripts/lint.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
