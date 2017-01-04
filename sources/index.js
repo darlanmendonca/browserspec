@@ -1,10 +1,9 @@
-import {port, corporateProxy} from './config.js'
 import express from 'express'
-import gzip from 'compression'
 import url from 'url'
 import {argv} from 'yargs'
-import open from 'open'
+import {port} from './config.js'
 import proxy from './proxy.js'
+import openBrowser from './open-browser.js'
 
 const server = express()
 const validUrl = typeof argv.url === 'string' && url.parse(argv.url)
@@ -15,24 +14,8 @@ if (!validUrl) {
 }
 
 server
-  .use(gzip())
   .use('/', proxy())
   .listen(port, openBrowser)
-
-function openBrowser() {
-  const browsers = [
-    'google chrome',
-    'firefox',
-    'safari',
-  ]
-
-  const route = `http://localhost:${port}`
-  const browser = argv.browser && browsers.indexOf(argv.url)
-    ? argv.browser
-    : undefined
-
-  open(route, browser)
-}
 
 module.exports = server
 

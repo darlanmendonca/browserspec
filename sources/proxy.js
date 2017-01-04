@@ -2,6 +2,7 @@ import proxy from 'express-http-proxy'
 import HttpsProxyAgent from 'https-proxy-agent'
 import url from 'url'
 import {argv} from 'yargs'
+import {corporateProxy} from './config.js'
 
 module.exports = () => {
   const options = {
