@@ -37,7 +37,7 @@ function openBrowser() {
   const route = `http://localhost:${port}`
   const browser = argv.browser && browsers.indexOf(argv.url)
     ? argv.browser
-    : browsers[0]
+    : undefined
 
   open(route, browser)
 }
