@@ -17,5 +17,3 @@ server
   .use('/', proxy())
   .listen(port, openBrowser)
 
-module.exports = server
-
