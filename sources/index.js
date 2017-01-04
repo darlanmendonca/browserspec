@@ -28,8 +28,18 @@ server
   .listen(port, openBrowser)
 
 function openBrowser() {
+  const browsers = [
+    'google chrome',
+    'firefox',
+    'safari',
+  ]
+
   const route = `http://localhost:${port}`
-  open(route, 'google chrome')
+  const browser = argv.browser && browsers.indexOf(argv.url)
+    ? argv.browser
+    : browsers[0]
+
+  open(route, browser)
 }
 
 module.exports = server
