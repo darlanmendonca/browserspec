@@ -16,20 +16,19 @@ if (!validUrl) {
 }
 
 const options = {
-  forwardPath(req, res) {
+  forwardPath(req) {
     if (req.path === '/') {
       return url.parse(argv.url).path
     }
   },
-  decorateRequest(req, res) {
+  decorateRequest(req) {
     if (corporateProxy) {
       const proxyAgent = new HttpsProxyAgent(corporateProxy)
       req.agent = proxyAgent
     }
 
-
     return req
-  }
+  },
 }
 
 server
