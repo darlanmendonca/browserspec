@@ -1,10 +1,12 @@
-import proxy from 'express-http-proxy'
+import httpProxy from 'express-http-proxy'
 import HttpsProxyAgent from 'https-proxy-agent'
 import url from 'url'
 import {argv} from 'yargs'
 import {corporateProxy} from './config.js'
 
-module.exports = () => {
+module.exports = proxy
+
+function proxy() {
   const options = {
     forwardPath(req) {
       if (req.path === '/') {
@@ -21,6 +23,6 @@ module.exports = () => {
     },
   }
 
-  return proxy(argv.url, options)
+  return httpProxy(argv.url, options)
 }
 
